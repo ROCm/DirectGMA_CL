@@ -415,10 +415,7 @@ int CreateBufferRemote(cl_context ctx, cl_mem& remote, cl_command_queue queue, c
   temp.surface_bus_address = RemoteBusAddresses.surface_bus_address;
   remote = clCreateBuffer(ctx, CL_MEM_EXTERNAL_PHYSICAL_AMD, DATASIZE, &temp, &error);
   check_err(error, "clCreateBuffer CL_MEM_EXTERNAL_PHYSICAL_AMD", &ctx);
-  char aaa = -124;
-  char ttt = 84;
-  unsigned char aaaa = 84;
-  unsigned char aaaat = -124;
+
 
   error = clEnqueueMigrateMemObjects(queue, 1, &remote, 0, 0, NULL, NULL);
   check_err(error, "clEnqueueMigrateMemObjects", &ctx);
@@ -506,7 +503,7 @@ int main(int argc, char *argv[])
   if (success)
     cout << "DGMA transfer successful" << endl;
   else 
-    cout << "DGMA transfer failed" << endl;
+    cout << "DGMA transfer failed, see log.txt for more information" << endl;
 
 
   delete[] data;
